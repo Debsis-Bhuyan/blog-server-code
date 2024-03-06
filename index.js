@@ -3,14 +3,12 @@ const app = express()
 const cors = require('cors')
 const blogs = require('./blog-data/blogsData.json')
 const dotenv = require('dotenv')
-const path = require('path');
 dotenv.config();
 const port = process.env.PORT || 5000;
 
 // middleware
 app.use(cors())
 app.use(express.json())
-app.use('/static', express.static(path.join(__dirname, './build/dist')));
 
 app.get('/', (req, res) => {
     res.send("Blog server is running!")
